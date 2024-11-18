@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blood Group Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        h1 { color: #1e90ff; }
+        p { font-size: 16px; color: #333; margin-bottom: 10px; }
+        strong { font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Blood Group Detection Report</h1>
+    <p><strong>Hospital:</strong> {{ hospital_name }} (ID: {{ hospital_id }})</p>
+    <p><strong>Person:</strong> {{ person_name }}</p>
+    <p><strong>Email:</strong> {{ person_email }}</p>
+    <p><strong>Contact Number:</strong> {{ contact_number }}</p>
+    <p><strong>Predicted Blood Group:</strong> {{ predicted_blood_group }}</p>
+    <p><strong>Prediction Date:</strong> {{ prediction_date }}</p>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!-- templates/home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Detection System</title>
+    <style>
+        /* Reset some basic elements */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f7f3f0;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .button-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            list-style: none;
+            padding: 0;
+        }
+        .button-nav li {
+            width: 100%;
+        }
+        .button-nav a {
+            display: inline-block;
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            text-align: center;
+            color: #fff;
+            background-color: #007BFF;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .button-nav a:hover {
+            background-color: #0056b3;
+        }
+        .disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Blood Group Detection System</h1>
+        <nav>
+            <ul class="button-nav">
+                <li><a href="{% url 'hospital_register' %}">Register</a></li>
+                <li><a href="{% url 'hospital_login' %}">Login</a></li>
+                <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+
+                {% if person %}
+                    <li><a href="{% url 'predict_blood_group' person_id=person.person_id %}">Predict Blood Group</a></li>
+                {% else %}
+                    <li><a href="#" class="disabled">No Person Registered</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>

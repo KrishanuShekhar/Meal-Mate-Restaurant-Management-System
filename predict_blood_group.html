@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blood Group Prediction</title>
+</head>
+<body>
+    <h2>Blood Group Detection</h2>
+    <form action="{% url 'predict_blood_group' person_id=person_id %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="file">Upload Fingerprint Image:</label>
+        <input type="file" id="file" name="file" accept="image/*" required>
+        <button type="submit">Predict Blood Group</button>
+    </form>
+    {% for message in messages %}
+        <p style="color: red;">{{ message }}</p>
+    {% endfor %}
+</body>
+</html>
